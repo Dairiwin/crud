@@ -158,11 +158,14 @@ while($fila=mysqli_fetch_row($resultado2))
 
    <br>
 <script>
-var hide  =document.getElementById("myform");
+   function hide() {
+var hides=document.getElementById("myform");
 
 
-hide.classList.add('invisible');
+hides.classList.add('invisible');
 
+
+   }
 
 
 
