@@ -60,7 +60,7 @@ echo '<li><a class="dropdown-item" href="config.php">Configuracion</a></li>';
 
 
 echo '<li><a class="dropdown-item" href="config.php">Configuracion</a></li>
-<li> <a class="dropdown-item"  href="teachers.php">Profesores </a></li>
+<li> <a class="dropdown-item"  href="students.php">Estudiantes </a></li>
 <li> <a class="dropdown-item"  href="teachers.php">Profesores </a></li>
 
 <li> <a class="dropdown-item"  href="gencod.php">Cod registro</a></li>';

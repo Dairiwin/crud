@@ -110,8 +110,8 @@ transition: 0.5s;
 <br>
 <br>
     <h2>Buscar</h2>
-    <p>Para ver realizar una busqueda teclee el nombre o precio </p>
-        <form accept-charset="utf-8" action="productos.php" enctype="multipart/form-data" method="POST">
+    <p>Para ver realizar una busqueda teclee el numero de cedula </p>
+        <form accept-charset="utf-8" action="teachers.php" enctype="multipart/form-data" method="POST">
 
 <b>Buscar...</b>
 <div class="input-group mb-3 input-group-sm">
@@ -152,24 +152,24 @@ require("connect_db.php");
 
 
 
-$consulta2="SELECT user,img,lastname,email,id FROM login WHERE cedula LIKE '%$producto%'    AND rol='2' ORDER BY user ASC Limit 30;";
+$consulta2="SELECT user,img,lastname,email,id,cedula,carrera FROM login WHERE cedula LIKE '%$producto%'    AND rol='3' ORDER BY user ASC Limit 30;";
 
 $resultado2=mysqli_query($mysqli,$consulta2);
 
 while($fila=mysqli_fetch_row($resultado2))
 {
   echo "<div class='card' style='width:30vw; min-width:300px;'>"."<img class='card-img-top' alt='Card image' style='width:100%; height:40vh;' src="."'"."/images/".$fila['1']."'"."alt=''".">"."  <div class='card-body'>
-  <h4 class='card-title'>".$fila['0']." <hr>".$fila['2']."</h4><p class='card-text'>";
+  <h4 class='card-title'>".$fila['0']." <hr>".$fila['5']."</h4><p class='card-text'>";
 
   echo "<form accept-charset='utf-8'";
 
 
   if(@!$_SESSION['user'])
   {echo "action='index.php'";}
-  else{ echo "action='nota.php'";}
+  else{ echo "action='teachers.php'";}
 
   echo "enctype='multipart/form-data' method='POST'>";
-  echo "<p class='btn btn-dark' style='display:none;'>Año: ".$fila['4']."</p><p class='btn btn-dark float-sm-left'>Precio: ".$fila['3']."</p><br><button type='submit' class='btn btn-warning' style='display:none;'>"."Ver notas"."</button></div>";
+  echo "<p class='btn btn-dark' style='display:none;'>Año: ".$fila['4']."</p><p class='btn btn-dark float-sm-left'>Correo: ".$fila['3']."</p><br><button type='submit' class='btn btn-warning' style='display:none;'>"."Ver notas"."</button></div>";
 
 
  echo "<input type='text' style='display:none;' name='id_product'value='".$fila['4']."'></form>";

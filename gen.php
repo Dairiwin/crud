@@ -30,7 +30,7 @@ if($lol<1 or $lol==1){
 }
 
 
-				mysqli_query($mysqli,"INSERT INTO cod_act (status,code,type) VALUES('1','$lol','$type')");
+				mysqli_query($mysqli,"INSERT INTO cod_act (status,code,type,carrera) VALUES('1','$lol','$type','$carrera')");
 
 require("include/cabecera.php");
 require("include/menu.php");

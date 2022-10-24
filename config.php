@@ -3,50 +3,28 @@
 require("connect_db.php");
 
 
-$consulta2="SELECT nombre,img FROM app_info WHERE id='1'";
-
-$resultado2=mysqli_query($mysqli,$consulta2);
-
-while($fila=mysqli_fetch_row($resultado2))
-{
-  $app_name=$fila['0'];
-  $app_img=$fila['1'];
-}
-
-
-$consulta2="SELECT color FROM config WHERE id='1'";
-
-$resultado2=mysqli_query($mysqli,$consulta2);
-
-while($fila=mysqli_fetch_row($resultado2))
-{
-  $color=$fila['0'];
-}
-
-
-
-
 ?>
 
-
-<!--Cabecera de la pagina-->
-
- <head>
-    <!-- SCRIPTS JS-->
-    <script src="jquery-3.3.1.min.js"></script>
- <!--Cargar stilo-->
+</head>
+<body style="background-color: darkgrey;">
+<div class="container-fluid" style="background-color: darkgrey;">
 
 
-  <link href="style.css" type="text/css" rel="stylesheet"></link>
 
- <link href="demo.css" type="text/css" rel="stylesheet"></link>
-  <!--icono de la pagina-->
-<link rel="icon" type="image/png" href="/logo/<?php echo $app_img;?>" id="pagelogo" />
+<link rel="stylesheet" href="/bootstrap/4.3.1/css/bootstrap.css">
+<header class="header">
+  <?php
 
-<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+include("include/cabecera.php");
+
+include("include/menu.php");
+
+require("include/cabecera_admin.php");
+  ?>
+
+
 
 <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="/bootstrap/4.3.1/css/bootstrap.css">
 
 
 <!-- jQuery library -->
@@ -61,186 +39,6 @@ while($fila=mysqli_fetch_row($resultado2))
 
 <!-- Latest compiled JavaScript -->
 <script src="/bootstrap/4.3.1/js/bootstrap.js"></script>
-
-<!--titulo-->
-<title><?php echo $app_name?></title>
-<!--Fin de titulo-->
-
-<meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1.0, user-scalable=no">
-
-
-  </head>
-<body style="background-color: darkgrey;">
-<div class="container-fluid" style="background-color: darkgrey;">
-
-<header class="header">
-  <?php
-  include("include/cabecera.php");
-
-require("include/cabecera_admin.php");
-  ?>
-
-</header>
-
-
-</script>
-
-<style type="text/css">
-#divslider
-{
-background-color:white;
-padding: 0px;
-margin-top:0px;
-box-shadow: black 0px 10px 9px;
-margin-right: 10.5%;
-height: 70vh;
-width: 100%;
-}
-
-
-
-
-#posttext
-{
-margin-bottom: none;
-padding-bottom: none;
-width: 100%;
-height: 100%;
-min-height: 150px;
-resize: none;
-border:none;
-border: 0px;
-margin:0px;
-word-wrap: break-word;
-font-size: 100%;
-}
-</style>
-
-<link rel="stylesheet" href="flexslider.css" type="text/css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-	<script src="js/jquery.flexslider.js"></script>
-	<script type="text/javascript" charset="utf-8">
-  $(window).load(function() {
-    $('.flexslider').flexslider({
-    	touch: true,
-    	pauseOnAction: false,
-    	pauseOnHover: false,
-    });
-  });
-</script>
-<!--Fin de scripts-->
-
-
-</head>
-
-</div>
-</nav>
-<nav class="navbar navbar-expand-sm navbar-dark fixed-top" id="navbarra" >
-
-      <a class="navbar-brand" href="index.php">
-
-
-
-<img height="50vh" src="/logo/<?php echo $app_img;?>"/>
-
-      </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="collapsibleNavbar">
-
-      <ul class="navbar-nav">
-
-    </li>
-
-    <li class="nav-item">
-
-
-        </li>
-      <!-- Dropdown -->
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle "  href="#" id="navbardrop" data-toggle="dropdown">
-Mas </a>
-      <div class="dropdown-menu">
-
-        <a class="dropdown-item" <?php
-
-
-if (@!$_SESSION['user'])
-{
-echo "href='index2.php'";
-
-}
-else
-{
-echo "href='profile.php'";
-}
-
-
-?>>
-
-  <summary ><?php
-
-
-        if (@!$_SESSION['user'])
-   {
-echo "<p>"."Iniciar sesion"."</p>";
-
-echo '<a class="dropdown-item" href="info.php">Sobre nosotros</a>
-        <a class="dropdown-item"  href="alumno.php">alumnos</a>';
-   }
-   else
-   {
-       echo "<p>".$_SESSION['user']."</p>";
-      echo ' <a class="dropdown-item"  href="desconectar.php">
-
-
-       Cerrar sesion
-       <span class="icon icon-switch"></span>
-       </a>';
-
-       echo '  <a class="dropdown-item"  href="config.php">Configuracion</a>';
-   }
-
-
-      ?></summary>
-</a>
-
-    
-      </div>
-    </li>
-      </ul>
-   </div>
-</nav>
-<?php
-echo "<style>
-
-#navbarra{
-  background-color:".$color.";
-}
-
-</style>
-";
-?>
-<style>
-</style>
-</head>
-<body style="background-color: darkgrey;">
-
-<ul>
-
-</nav>
-
-</header>
-
-<!--contenido de la pagina-->
-<section style="background-color: darkgrey;">
-
-
-<h1 style="opacity: 0;">Articulo</h1>
-
-
 
 
 
@@ -330,49 +128,6 @@ while($fila=mysqli_fetch_row($resultado2))
 
 </div>
 
-
-
-
-<div class="flexslider" style="width:100%; height:70vh;">
-    <ul class="slides" style="width:100%; height:70vh;">
-    <?php
-    
-require("connect_db.php");
-
-
-
-$consulta2="SELECT title,description,price,img,id_slider FROM slider";
-
-$resultado2=mysqli_query($mysqli,$consulta2);
-
-while($fila=mysqli_fetch_row($resultado2))
-{
-
-  echo"<li><form action='editar_slider.php' method='post' accept-charset='utf-8'>";
-  echo "<img src='/images/".$fila['3']."' alt='".$fila['3']."' style='width:100%; height:60vh;'/>";
-  echo "<section class='flex-caption'>";
-  echo "<p style='font-family:verdana; font-size:5vh; font-weight:bolder;' >".$fila['0']."<br><span id='text_slider'>".$fila['1']."</span><br>"."precio:".$fila['2']."<br><button type='submit' class='btn btn-warning'>Editar</button>";
-  echo "<input type='text' style='display:none; 'name='id_slider' value='".$fila['4']."'></form>";
-  echo "</><br>";
-  echo "</section>";
-  echo "</li>";
- /*elementos del slider*/
- 
-
-
-}
-
-
-?>
-
-
-
-		</ul>
-	</div>
-
-    <a href="registrar_slider.php" class='btn btn-warning' style='width:100%; font-size:5vh; height:9vh; color:white; font-family:verdana ;'>Agregar slider</a>
-
-
 <!--Contenido de la pagina-->
 
 <div id="div">
@@ -404,9 +159,7 @@ while($fila=mysqli_fetch_row($resultado2))
 <br>
 
 
-<h1>Sobre nosotros</h1>
 
-<textarea type="text"  name="abouts"  required class="form-control"><?php echo$aboutus;?></textarea> 
 <br>
 
 

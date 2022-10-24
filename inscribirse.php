@@ -151,7 +151,7 @@ while($fila=mysqli_fetch_row($resultado2))
 
  <b>Numero de referencia bancaria.</b>
 
-   <input type="text" name="rcode" required="true" required placeholder="codigo"   class="form-control form-control-sm" />
+   <input type="text" name="ref" required="true" required placeholder="codigo"   class="form-control form-control-sm" />
 
       <div class="invalid-feedback">Comprueba el codigo de actvacion.</div>
 
