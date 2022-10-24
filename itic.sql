@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1:3306
--- Generation Time: Oct 24, 2022 at 12:28 PM
--- Server version: 5.7.36
--- PHP Version: 7.4.26
+-- Servidor: 127.0.0.1:3306
+-- Tiempo de generación: 06-10-2022 a las 23:13:02
+-- Versión del servidor: 5.7.36
+-- Versión de PHP: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `itic`
+-- Base de datos: `itic`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `admin_news`
+-- Estructura de tabla para la tabla `admin_news`
 --
 
 DROP TABLE IF EXISTS `admin_news`;
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS `admin_news` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `admin_news`
+-- Volcado de datos para la tabla `admin_news`
 --
 
 INSERT INTO `admin_news` (`id`, `user_id`, `status`, `content`, `name`, `img`, `content2`) VALUES
@@ -49,7 +49,7 @@ INSERT INTO `admin_news` (`id`, `user_id`, `status`, `content`, `name`, `img`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `app_info`
+-- Estructura de tabla para la tabla `app_info`
 --
 
 DROP TABLE IF EXISTS `app_info`;
@@ -64,7 +64,7 @@ CREATE TABLE IF NOT EXISTS `app_info` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `app_info`
+-- Volcado de datos para la tabla `app_info`
 --
 
 INSERT INTO `app_info` (`id`, `nombre`, `img`, `description`, `footer`, `aboutus`) VALUES
@@ -73,28 +73,7 @@ INSERT INTO `app_info` (`id`, `nombre`, `img`, `description`, `footer`, `aboutus
 -- --------------------------------------------------------
 
 --
--- Table structure for table `bankinfo`
---
-
-DROP TABLE IF EXISTS `bankinfo`;
-CREATE TABLE IF NOT EXISTS `bankinfo` (
-  `owner` int(255) NOT NULL,
-  `acnum` int(255) NOT NULL,
-  `ci` int(255) NOT NULL AUTO_INCREMENT,
-  PRIMARY KEY (`ci`)
-) ENGINE=MyISAM AUTO_INCREMENT=142637 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `bankinfo`
---
-
-INSERT INTO `bankinfo` (`owner`, `acnum`, `ci`) VALUES
-(34, 5, 142636);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `carrera`
+-- Estructura de tabla para la tabla `carrera`
 --
 
 DROP TABLE IF EXISTS `carrera`;
@@ -107,7 +86,7 @@ CREATE TABLE IF NOT EXISTS `carrera` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `carrera`
+-- Volcado de datos para la tabla `carrera`
 --
 
 INSERT INTO `carrera` (`id`, `carrera`, `coste_incrip`, `coste_semes`) VALUES
@@ -117,7 +96,7 @@ INSERT INTO `carrera` (`id`, `carrera`, `coste_incrip`, `coste_semes`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cod_act`
+-- Estructura de tabla para la tabla `cod_act`
 --
 
 DROP TABLE IF EXISTS `cod_act`;
@@ -128,28 +107,22 @@ CREATE TABLE IF NOT EXISTS `cod_act` (
   `type` int(255) NOT NULL DEFAULT '2',
   `carerra` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=46 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `cod_act`
+-- Volcado de datos para la tabla `cod_act`
 --
 
 INSERT INTO `cod_act` (`id`, `status`, `code`, `type`, `carerra`) VALUES
 (36, 1, 67, 1, 0),
 (37, 1, 37, 3, NULL),
 (38, 1, 38, 1, NULL),
-(39, 1, 39, 1, NULL),
-(40, 1, 40, 2, NULL),
-(41, 1, 41, 2, NULL),
-(42, 1, 42, 1, NULL),
-(43, 1, 43, 1, NULL),
-(44, 1, 44, 2, NULL),
-(45, 1, 45, 1, NULL);
+(39, 1, 39, 1, NULL);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `config`
+-- Estructura de tabla para la tabla `config`
 --
 
 DROP TABLE IF EXISTS `config`;
@@ -168,7 +141,7 @@ CREATE TABLE IF NOT EXISTS `config` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `config`
+-- Volcado de datos para la tabla `config`
 --
 
 INSERT INTO `config` (`id`, `color`, `header`, `content`, `active`, `active_slider`, `color_gradient`, `color_gradient2`, `color_gradient3`, `coin`) VALUES
@@ -177,7 +150,7 @@ INSERT INTO `config` (`id`, `color`, `header`, `content`, `active`, `active_slid
 -- --------------------------------------------------------
 
 --
--- Table structure for table `login`
+-- Estructura de tabla para la tabla `login`
 --
 
 DROP TABLE IF EXISTS `login`;
@@ -192,23 +165,22 @@ CREATE TABLE IF NOT EXISTS `login` (
   `lastname` varchar(255) NOT NULL,
   `cedula` int(255) NOT NULL,
   `carrera` int(255) NOT NULL,
-  `ref` int(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `login`
+-- Volcado de datos para la tabla `login`
 --
 
-INSERT INTO `login` (`id`, `email`, `passadmin`, `user`, `rol`, `password`, `img`, `lastname`, `cedula`, `carrera`, `ref`) VALUES
-(3, 'admin@admin.com', 'admin', 'admin', '1', 'admin', 'meme.png', 'admion', 0, 0, 0),
-(4, 'user@user.com', '', 'user@user.com', '2', 'Contraseña0', 'pet4.png', 'nick', 0, 0, 0),
-(32, 'profesor@gmail.com', '', 'profesor@gmail.com', '3', 'Profesor0', 'user2.png', 'nick', 9989, 0, 0);
+INSERT INTO `login` (`id`, `email`, `passadmin`, `user`, `rol`, `password`, `img`, `lastname`, `cedula`, `carrera`) VALUES
+(3, 'admin@admin.com', 'admin', 'admin', '1', 'admin', 'meme.png', 'admion', 0, 0),
+(4, 'user@user.com', '', 'user@user.com', '2', 'Contraseña0', 'pet4.png', 'nick', 0, 0),
+(32, 'profesor@gmail.com', '', 'profesor@gmail.com', '3', 'Profesor0', 'user2.png', 'nick', 9989, 0);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `materias`
+-- Estructura de tabla para la tabla `materias`
 --
 
 DROP TABLE IF EXISTS `materias`;
@@ -219,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `materias` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `materias`
+-- Volcado de datos para la tabla `materias`
 --
 
 INSERT INTO `materias` (`id`, `materia`) VALUES
@@ -229,7 +201,7 @@ INSERT INTO `materias` (`id`, `materia`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `semestres`
+-- Estructura de tabla para la tabla `semestres`
 --
 
 DROP TABLE IF EXISTS `semestres`;
@@ -240,7 +212,7 @@ CREATE TABLE IF NOT EXISTS `semestres` (
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `semestres`
+-- Volcado de datos para la tabla `semestres`
 --
 
 INSERT INTO `semestres` (`id`, `num`) VALUES
@@ -254,7 +226,7 @@ INSERT INTO `semestres` (`id`, `num`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `slider`
+-- Estructura de tabla para la tabla `slider`
 --
 
 DROP TABLE IF EXISTS `slider`;
@@ -268,7 +240,7 @@ CREATE TABLE IF NOT EXISTS `slider` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `slider`
+-- Volcado de datos para la tabla `slider`
 --
 
 INSERT INTO `slider` (`id_slider`, `img`, `price`, `description`, `title`) VALUES
