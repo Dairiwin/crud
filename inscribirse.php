@@ -130,6 +130,8 @@ while($fila=mysqli_fetch_row($resultado2))
 </div>
 </div>
 <div  style="z-index:999;" class="invisible w-80 h-90 container-md position-absolute top-50 start-50 translate-middle  bg-white m-4 p-4" id="myform">
+
+   <input  class="btn btn-danger float-md-right top-50 " onclick="hide()" type="submit"  value="X"/>
    <input type="text" name="realname"  placeholder="Ingresa tu nombre" class="form-control form-control-sm" />
    <b>Ingresa tu email</b>
    <input type="mail"  name="nick"  placeholder="Ingresa tu mail" class="form-control form-control-sm" />
@@ -171,7 +173,6 @@ hides.classList.add('invisible');
 
 </script>
    <input  class="btn btn-dark float-md-right" type="submit" name="submit" value="Registrarse"/>
-   <input  class="btn btn-danger float-md-right top-50 position-absolute" onclick="hide()" type="submit"  value="X"/>
 
 
 
