@@ -2,10 +2,10 @@
 -- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
--- Servidor: 127.0.0.1:3306
--- Tiempo de generación: 13-10-2022 a las 02:04:03
--- Versión del servidor: 5.7.36
--- Versión de PHP: 7.4.26
+-- Host: 127.0.0.1:3306
+-- Generation Time: Oct 24, 2022 at 12:27 PM
+-- Server version: 5.7.36
+-- PHP Version: 7.4.26
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -18,13 +18,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bank`
+-- Database: `bank`
 --
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `app_info`
+-- Table structure for table `app_info`
 --
 
 DROP TABLE IF EXISTS `app_info`;
@@ -39,16 +39,16 @@ CREATE TABLE IF NOT EXISTS `app_info` (
 ) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `app_info`
+-- Dumping data for table `app_info`
 --
 
 INSERT INTO `app_info` (`id`, `nombre`, `img`, `description`, `footer`, `aboutus`) VALUES
-(1, 'proectoxddd', '4288564_banking_business_cash_income_money_icon.png', 'pag de proyecto', 'copyrycisaidjaidajids', '');
+(1, 'PeyNau', '5000723_network_online_paypal_payment_finance_icon.png', 'Pag bancaria', 'INFO', '');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `config`
+-- Table structure for table `config`
 --
 
 DROP TABLE IF EXISTS `config`;
@@ -67,16 +67,16 @@ CREATE TABLE IF NOT EXISTS `config` (
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `config`
+-- Dumping data for table `config`
 --
 
 INSERT INTO `config` (`id`, `color`, `header`, `content`, `active`, `active_slider`, `color_gradient`, `color_gradient2`, `color_gradient3`, `coin`) VALUES
-(1, '#020066', 'Bienvenido!', 'Bienvenido al sistema estudiantil ... mucho texto asi que ZZZ', 'on', 'on', '#1a0099', '#0b258e', '#050857', 'bs');
+(1, '#7be5b3', 'Lo hacemos de la manera digital<img src=\"/banco/images/bank.jpg\" class=\"img-fluid\" style=\"width:100vw;\">', 'realiza transacciones bancarias sin mucho problema.', 'on', 'off', '#7bd199', '#61bd81', '#417161', 'bs');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `login`
+-- Table structure for table `login`
 --
 
 DROP TABLE IF EXISTS `login`;
@@ -89,53 +89,75 @@ CREATE TABLE IF NOT EXISTS `login` (
   `password` varchar(255) NOT NULL,
   `lastname` varchar(255) NOT NULL,
   `cedula` int(255) NOT NULL,
-  `cash` float NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=33 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=35 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `login`
+-- Dumping data for table `login`
 --
 
-INSERT INTO `login` (`id`, `email`, `passadmin`, `user`, `rol`, `password`, `lastname`, `cedula`, `cash`) VALUES
-(3, 'admin@admin.com', 'admin', 'admin', '1', 'admin', 'admion', 0, 500),
-(4, 'user@user.com', '', 'user@user.com', '2', 'Contraseña0', 'nick', 0, 501),
-(32, 'profesor@gmail.com', '', 'profesor@gmail.com', '3', 'Profesor0', 'nick', 9989, 469.999);
+INSERT INTO `login` (`id`, `email`, `passadmin`, `user`, `rol`, `password`, `lastname`, `cedula`) VALUES
+(3, 'admin@admin.com', 'admin', 'admin', '1', 'admin', 'admion', 0),
+(4, 'user@user.com', '', 'user@user.com', '2', '1234', 'nick', 0),
+(32, 'profesor@gmail.com', '', 'profesor@gmail.com', '3', 'Profesor0', 'nick', 9989),
+(33, 'user2@user.com', '', 'user', '2', 'user', 'usuario', 26344356),
+(34, 'school@school.com', 'school', 'school', '1', 'school', 'school', 999);
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `move`
+-- Table structure for table `move`
 --
 
 DROP TABLE IF EXISTS `move`;
 CREATE TABLE IF NOT EXISTS `move` (
   `id` int(255) NOT NULL AUTO_INCREMENT,
   `monto` float DEFAULT NULL,
-  `recept` varchar(255) NOT NULL,
+  `sender` varchar(255) NOT NULL,
   `benefact` varchar(255) NOT NULL,
+  `ref` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=54 DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `move`
+--
+
+INSERT INTO `move` (`id`, `monto`, `sender`, `benefact`, `ref`) VALUES
+(53, 50, '4', '5', '36977'),
+(52, 1, '4', '4', '25687'),
+(51, 1, '4', '4', '29094'),
+(50, 1, '4', '4', '24376'),
+(49, 1, '4', '4', '41663'),
+(48, 1, '4', '4', '85778'),
+(47, 1, '4', '4', '19275'),
+(46, 1, '4', '4', '13979'),
+(45, 1, '4', '4', '50067'),
+(44, 1, '4', '4', '83582'),
+(43, 122.99, '4', '4', '44197');
 
 -- --------------------------------------------------------
 
 --
--- Estructura de tabla para la tabla `wallet`
+-- Table structure for table `wallet`
 --
 
 DROP TABLE IF EXISTS `wallet`;
 CREATE TABLE IF NOT EXISTS `wallet` (
   `accountnum` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT,
   `cash` int(11) NOT NULL,
+  `owner` int(255) NOT NULL,
   UNIQUE KEY `accountnum` (`accountnum`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Volcado de datos para la tabla `wallet`
+-- Dumping data for table `wallet`
 --
 
-INSERT INTO `wallet` (`accountnum`, `cash`) VALUES
-(3, 4545);
+INSERT INTO `wallet` (`accountnum`, `cash`, `owner`) VALUES
+(3, 253, 4),
+(4, 437, 33),
+(5, 51, 34);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
