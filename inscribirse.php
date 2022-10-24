@@ -157,8 +157,18 @@ while($fila=mysqli_fetch_row($resultado2))
 
 
    <br>
+<script>
+var hide  =document.getElementById("myform");
 
+
+hide.classList.add('invisible');
+
+
+
+
+</script>
    <input  class="btn btn-dark float-md-right" type="submit" name="submit" value="Registrarse"/>
+   <input  class="btn btn-danger float-md-right top-50 position-absolute" onclick="hide()" type="submit"  value="X"/>
 
 
 
