@@ -1,5 +1,8 @@
 <?php
 
+   $sede=$_POST['sede'];
+
+   $facultad=$_POST['facultad'];
 require("include/cabecera_index.php");
 require("include/menu.php");
 require("connect_db.php");
@@ -27,7 +30,7 @@ form.classList.add('visible');
 
 
 
-<form  method="post" action="registro.php" class="was-validated clearfix">
+<form  method="post" action="registro_ref.php" class="was-validated clearfix">
 
 
           <div class="form-group">
@@ -48,12 +51,12 @@ form.classList.add('visible');
 
 <div class="input-group mb-3">
   <label class="input-group-text" for="inputGroupSelect01">Carrera</label>
-  <select class="form-select" id="inputGroupSelect01">
+  <select class="form-select" id="inputGroupSelect01" name="carrera">
 
 <?php
 
 
-            $codeprivileges=mysqli_query($mysqli,"SELECT id, carrera, coste_incrip ,  coste_semes FROM carrera ");
+            $codeprivileges=mysqli_query($mysqli,"SELECT id, carrera, coste_incrip ,  coste_semes FROM carrera WHERE idsede='$sede' and idfacu='$facultad' ");
 
 
 while($fila=mysqli_fetch_row($codeprivileges))

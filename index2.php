@@ -249,7 +249,7 @@ margin: 0px;
 <br>
 
 <br>
-<a href="registrar.php" class="btn btn-dark float-lg-right">Registrarse
+<a href="sedes.php" class="btn btn-dark float-lg-right">Registrarse
 <span class="icon icon-address-book"></span></a>
     </div>
      </form>
